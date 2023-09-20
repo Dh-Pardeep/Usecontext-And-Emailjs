@@ -51,37 +51,43 @@ const From = () => {
         });
     };
     return (
-        <div>
-            <div onSubmit={(e) => handleSubmit(e)}>
-                <form ref={form} onSubmit={sendEmail} >
-                    <label>Name</label>
-                    <input name="user_name"
-                        value={formValues.user_name}
-                        onChange={(e) =>
-                            setFormValues({ ...formValues, user_name: e.target.value })
-                        }
-                    ></input>
-                    <br />
-                    <label>Email</label>
-                    <input name="user_email" type="email"
-                        value={formValues.user_email}
-                        onChange={(e) =>
-                            setFormValues({ ...formValues, user_email: e.target.value })
-                        }
-                    ></input>
-                    <br />
-                    <label>Message</label>
-                    <textarea name="message"
-                        value={formValues.message}
-                        onChange={(e) =>
-                            setFormValues({ ...formValues, message: e.target.value })
-                        }
-                    ></textarea>
-                    <br />
-                    <button onClick={successAlert} type="submit">Save</button>
-                </form>
+        <div className="container_box mx-auto p-4 d-flex justify-content-center align-items-center">
+            <div className="small_box w-100   d-flex justify-content-center align-items-center">
+                <div onSubmit={(e) => handleSubmit(e)}>
+                    <form ref={form} onSubmit={sendEmail} >
+                        <label className='text-white pt-4'>Name</label>
+                        <input name="user_name" 
+                        className=' w-100'
+                            value={formValues.user_name}
+                            onChange={(e) =>
+                                setFormValues({ ...formValues, user_name: e.target.value })
+                            }
+                        ></input>
+                        <br />
+                        <label className='text-white'>Email</label>
+                        <input name="user_email" type="email"
+                        className=' w-100'
+                            value={formValues.user_email}
+                            onChange={(e) =>
+                                setFormValues({ ...formValues, user_email: e.target.value })
+                            }
+                        ></input>
+                        <br />
+                        <label className='text-white'>Message</label>
+                        <textarea name="message"
+                        className=' w-100' 
+                            value={formValues.message}
+                            onChange={(e) =>
+                                setFormValues({ ...formValues, message: e.target.value })
+                            }
+                        ></textarea>
+                        <br />
+                        <button onClick={successAlert} className='mb-4 text-white inline-block bg-black' type="submit">Save</button>
+                    </form>
+                </div>
             </div>
         </div>
+
 
 
     )
