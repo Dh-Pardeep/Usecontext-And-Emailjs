@@ -56,8 +56,8 @@ const From = () => {
                 <div onSubmit={(e) => handleSubmit(e)}>
                     <form ref={form} onSubmit={sendEmail} >
                         <label className='text-white pt-4'>Name</label>
-                        <input name="user_name" 
-                        className=' w-100'
+                        <input placeholder='Name' name="user_name"
+                            className=' w-100'
                             value={formValues.user_name}
                             onChange={(e) =>
                                 setFormValues({ ...formValues, user_name: e.target.value })
@@ -65,8 +65,8 @@ const From = () => {
                         ></input>
                         <br />
                         <label className='text-white'>Email</label>
-                        <input name="user_email" type="email"
-                        className=' w-100'
+                        <input  placeholder='Email' name="user_email" type="email"
+                            className=' w-100'
                             value={formValues.user_email}
                             onChange={(e) =>
                                 setFormValues({ ...formValues, user_email: e.target.value })
@@ -74,8 +74,8 @@ const From = () => {
                         ></input>
                         <br />
                         <label className='text-white'>Message</label>
-                        <textarea name="message"
-                        className=' w-100' 
+                        <textarea  placeholder='Message' name="message"
+                            className=' w-100'
                             value={formValues.message}
                             onChange={(e) =>
                                 setFormValues({ ...formValues, message: e.target.value })
