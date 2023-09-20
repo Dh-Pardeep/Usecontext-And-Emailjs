@@ -51,7 +51,8 @@ const From = () => {
         });
     };
     return (
-        <div className="container_box mx-auto p-4 d-flex justify-content-center align-items-center">
+  <div className='min-vh-100 d-flex align-items-center' >
+          <div className="container_box mx-auto  p-4 ">
             <div className="small_box w-100   d-flex justify-content-center align-items-center">
                 <div onSubmit={(e) => handleSubmit(e)}>
                     <form ref={form} onSubmit={sendEmail} >
@@ -74,8 +75,8 @@ const From = () => {
                         ></input>
                         <br />
                         <label className='text-white'>Message</label>
-                        <textarea  placeholder='Message' name="message"
-                            className=' w-100'
+                        <textarea   placeholder='Message' name="message"
+                            className=' w-100 resizetext'
                             value={formValues.message}
                             onChange={(e) =>
                                 setFormValues({ ...formValues, message: e.target.value })
@@ -87,6 +88,7 @@ const From = () => {
                 </div>
             </div>
         </div>
+  </div>
 
 
 
