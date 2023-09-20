@@ -8,9 +8,9 @@ const App = () => {
   const { arr, newObj, show, setShow } = useContext(ScreenFixed);
   return (
     <div>
-      {/* {newObj.name}
+      {newObj.name}
       {newObj.age}
-      {newObj.description} */}
+      {newObj.description}
       <From/>
     </div>
   );
