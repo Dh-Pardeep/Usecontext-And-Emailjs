@@ -2,11 +2,11 @@ import React from "react";
 import { useContext } from "react";
 import { ScreenFixed } from "./DataTransfer";
 import './App.css'
-import From from "./From";
+import From from "./components/From";
 const App = () => {
   const { arr, newObj, show, setShow } = useContext(ScreenFixed);
   return (
-    <div style={{display:"flex", flex:"co"}}>
+    <div>
       {newObj.name}
       {newObj.age}
       {newObj.description}
