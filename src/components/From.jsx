@@ -1,100 +1,58 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2'
 const From = () => {
-    const form = useRef();
+  const form = useRef();
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-        emailjs.sendForm('service_u3rfs9t', 'template_376noek', form.current, 'Z_KOGol0vj7O5N-Ni')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
-    };
-    const successAlert = () => {
-        Swal.fire({
-            title: 'Thank you for submitted',
-            text: 'You clicked the button.',
-            icon: 'success'
-        });
-    };
-    // const questionAlert = () => {
-    //     Swal.fire({  
-    //         title: 'Do you have a problem to solve?!',  
-    //         text: 'Ask us on dirask',
-    //         icon: 'question'
-    //       }); 
-    // }
+    emailjs.sendForm('service_col123h', 'template_z0ktny5', form.current, 'HLJjgMOe-RolOfJEM')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+    e.target.reset()
+  };
 
-    // const customImageAlert = () => {
-    //   Swal.fire({
-    //     text: "your custom image",
-    //     imageUrl: 'https://i.ibb.co/LktzszD/dirask.png'
-    //   });
-    // }
-    const [formValues, setFormValues] = useState({
-        user_name: "",
-        user_email: "",
-        message: ""
-    });
-    const [records, setRecords] = useState([]);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setRecords([...records, formValues]);
-        setFormValues({
-            user_name: "",
-            user_email: "",
-            message: ""
-        });
-    };
-    return (
-  <div className='min-vh-100 d-flex align-items-center' >
-          <div className="container_box mx-auto  p-4 ">
-            <div className="small_box w-100   d-flex justify-content-center align-items-center">
-                <div onSubmit={(e) => handleSubmit(e)}>
-                    <form ref={form} onSubmit={sendEmail} >
-                        <label className='text-white pt-4'>Name</label>
-                        <input placeholder='Name' name="user_name"
-                            className=' w-100'
-                            value={formValues.user_name}
-                            onChange={(e) =>
-                                setFormValues({ ...formValues, user_name: e.target.value })
-                            }
-                        ></input>
-                        <br />
-                        <label className='text-white'>Email</label>
-                        <input  placeholder='Email' name="user_email" type="email"
-                            className=' w-100'
-                            value={formValues.user_email}
-                            onChange={(e) =>
-                                setFormValues({ ...formValues, user_email: e.target.value })
-                            }
-                        ></input>
-                        <br />
-                        <label className='text-white'>Message</label>
-                        <textarea   placeholder='Message' name="message"
-                            className=' w-100 resizetext'
-                            value={formValues.message}
-                            onChange={(e) =>
-                                setFormValues({ ...formValues, message: e.target.value })
-                            }
-                        ></textarea>
-                        <br />
-                        <button onClick={successAlert} className='mb-4 text-white inline-block bg-black' type="submit">Save</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-  </div>
-
-
-
-    )
+  const successAlert = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, submitted it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'submitted!',
+          'Your file has been submitted.',
+          'success'
+        )
+      }
+    })
+  }
+  
+  return (
+   <div className='min-vh-100 d-flex align-items-center justify-content-center'>
+     <div className='container_box p-5 '>
+      <div className='small_box'>
+        <form ref={form} onSubmit={sendEmail} className='d-flex flex-column p-4'>
+          <label className='text-white py-2'>Name</label>
+          <input required placeholder='Name' type="text" name="user_name" />
+          <label className='text-white py-2'>Email</label>
+          <input required placeholder='Email' type="email" name="user_email" />
+          <label className='text-white py-2'>Message</label>
+          <textarea className='resizetext' name="message" />
+          <input className='mt-3' required placeholder='Message' onClick={successAlert} type="submit" value="Send" />
+        </form>
+      </div>
+    </div>
+   </div>
+  )
 }
 
 export default From
-
-
