@@ -28,10 +28,6 @@ const From = () => {
     e.target.reset()
   };
 
-  const successAlert = () => {
-   
-  };
-
   return (
     <div className='min-vh-100 d-flex align-items-center justify-content-center '>
       <div className='container_box p-5  position-relative z-2 '>
@@ -43,7 +39,7 @@ const From = () => {
             <input required placeholder='Email' type="email" name="user_email" />
             <label className='text-white py-2'>Message</label>
             <textarea className='resizetext' name="message" />
-            <input className='mt-3' required placeholder='Message' onClick={successAlert} type="submit" value="Send" />
+            <input className='mt-3' required placeholder='Message'  type="submit" value="Send" />
           </form>
         </div>
       </div>
