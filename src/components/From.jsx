@@ -36,10 +36,10 @@ const From = () => {
             <label className='text-white py-2'>Name</label>
             <input required placeholder='Name' type="text" name="user_name" />
             <label className='text-white py-2'>Email</label>
-            <input required placeholder='Email' type="email" name="user_email" />
+            <input required pattern='^[a-zA-Z0-9]+@gmail.com$' placeholder='Email' type="email" name="user_email" />
             <label className='text-white py-2'>Message</label>
             <textarea className='resizetext' name="message" />
-            <input className='mt-3' required placeholder='Message'  type="submit" value="Send" />
+            <input className='mt-3' required placeholder='Message' type="submit" value="Send" />
           </form>
         </div>
       </div>
